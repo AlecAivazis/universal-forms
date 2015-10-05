@@ -1,0 +1,25 @@
+{
+  "name": "moonlux-forms",
+  "version": "0.5.0",
+  "description": "Easily manage universal forms with both client and server side validation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaivazis/moonlux-forms.git"
+  },
+  "keywords": [
+    "universal",
+    "forms",
+    "react",
+    "moonlux"
+  ],
+  "author": "Alec Aivazis <alec@aivazis.com> (alec@aivazis.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aaivazis/moonlux-forms/issues"
+  },
+  "homepage": "https://github.com/aaivazis/moonlux-forms#readme"
+}
