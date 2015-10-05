@@ -1,28 +1,41 @@
 /**
  * The base field from which all other fields inherit.
  */
-// class BaseField {
+class BaseField {
+     constructor(name, params, ...args) {
+        this.configuration = {
+            name: name,
+            label: name,
+            ...defaultConfig,
+            ...params,
+        }
+    }
 
-// }
+    get name() {
+        return this.configuration.name
+    }
 
-// export the class
-// export default BaseField
+    get label() {
+        return this.configuration.label
+    }
 
-export default function BaseField(name, {label, widget = defaultWidget} = {}, ...args) {
-    // use the name for the label if its not present
-    const fieldLabel = label ? label : name
-    // return the data structure for the base field
-    return {
-        name,
-        label: fieldLabel,
-        widget,
+    get widget() {
+        return this.configuration.widget
     }
 }
 
+const defaultConfig = {
+    widget: defaultWidget,
+}
 
 // the default widget to use for a field
 const defaultWidget = {
-    type: 'input'
+    type: 'input',
 }
+
+
+// export a factory for the class
+export default (...args) =>  new BaseField(...args)
+
 
 // end of file

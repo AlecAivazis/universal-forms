@@ -4,9 +4,9 @@ import {TextField, EmailField} from './fields'
 export default class SignUpForm extends Form {
     static fields = [
         TextField('name'),
-        EmailField('email',
-            {label: 'e-mail'}
-        ),
+        EmailField('email', {
+            label: 'e-mail'
+        }),
         TextField('link'),
         TextField('message', {
             label: 'message (optional)',
@@ -16,6 +16,7 @@ export default class SignUpForm extends Form {
         }),
     ]
 }
+
 /*
  * Could also implement a factory which provides the following api.
  * This prevents possible fuck ups with mispelling or not assigning `fields`
@@ -29,3 +30,5 @@ export default class SignUpForm extends Form {
  *])
  *
  */
+
+// end of file

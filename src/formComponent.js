@@ -85,7 +85,7 @@ class Form extends React.Component {
         // render the component
         return (
             <form {...unused_props} ref='form'>
-                {this.state.form.get_fields().map(({name, label, widget}) => {
+                {this.state.form.fields.map(({name, label, widget}) => {
                     // the input widget
                     const input_widget = React.cloneElement(this.getElementForWidget(widget), {
                         id: name,

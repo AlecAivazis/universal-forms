@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/aaivazis/moonlux-forms/issues"
   },
-  "homepage": "https://github.com/aaivazis/moonlux-forms#readme"
+  "homepage": "https://github.com/aaivazis/moonlux-forms#readme",
+  "dependencies": {
+    "immutable": "^3.7.5"
+  }
 }
