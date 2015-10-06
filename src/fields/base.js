@@ -17,6 +17,8 @@ class BaseField {
         this.is_valid = false
         // use the initial value from the params
         this.value = initialValue
+        // bind various functions
+        this.validate = this.validate.bind(this)
     }
 
     get name() {
@@ -32,6 +34,11 @@ class BaseField {
     get widget() {
         // grab the widget from the configuration object
         return this.configuration.widget
+    }
+
+    // validate the value based on the fields validators
+    validate() {
+
     }
 }
 

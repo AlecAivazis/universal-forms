@@ -1,13 +1,10 @@
-import validator from 'validator'
-import curryRight from 'lodash/function/curryRight'
-import keys from 'lodash/object/keys'
+// thirdparty imports
 import Immutable from 'immutable'
 
-// wrappers around the validator functions to be configured first and then called later
-const isEmail = curryRight(validator.isEmail)
-const maxLength = (length) => (str) => validator.isLength(str, 0, length)
-
-
+/**
+ * This class provides basic form functionalities including validation
+ * and sanitization.
+ */
 export class Form {
 
     constructor(values) {
