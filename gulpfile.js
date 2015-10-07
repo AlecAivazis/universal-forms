@@ -2,12 +2,19 @@
 var gulp = require('gulp')
 var mocha = require('gulp-mocha')
 
+// the project paths
+const project_dirs = {
+    source: './src/',
+    test: './tests/'
+}
+
 
 /**
  * Run the test suite.
  */
 gulp.task('test', function() {
-    gulp.src('tests/**/*.js', {read: false})
+    gulp.src(project_dirs.test + '**/*.js', {read: false})
+
         .pipe(mocha({require: ['chai']}))
 })
 
