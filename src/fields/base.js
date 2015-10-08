@@ -2,7 +2,7 @@
  * The base field from which all other fields inherit.
  */
 class BaseField {
-     constructor(name, {initialValue, ...params}, ...args) {
+     constructor(name, {initialValue, ...params} = {}, ...args) {
         // create the field configuration
         this.configuration = {
             name: name,
@@ -13,32 +13,35 @@ class BaseField {
             // apply the given parameters
             ...params,
         },
-        // the field starts off an invalid
-        this.is_valid = false
         // use the initial value from the params
         this.value = initialValue
-        // bind various functions
-        this.validate = this.validate.bind(this)
     }
+
 
     get name() {
         // grab the name from the configuration object
         return this.configuration.name
     }
 
+
     get label() {
         // grab the label from the configuration object
         return this.configuration.label
     }
 
+
     get widget() {
         // grab the widget from the configuration object
-        return this.configuration.widget
+        return this.configuration.widget || defaultWidget
     }
 
+
     get errors() {
+        // if there is no value defined
+        if (!this.value) return ["Please provide a value for this field."]
+
         // create a list of error hashes out of the validators that do not pass
-        return this.validators.map(function(validate){
+        return this.validators.map((validate) => {
             // looking for validation errors
             try {
                 // check the current value agains the validator
@@ -52,36 +55,37 @@ class BaseField {
         }).filter((validator) => validator)
     }
 
+
     set value(value) {
         this._value = value
     }
 
+
     get value() {
-        return _.value
+        return this._value
     }
 
+
     // validate the value based on the fields validators
-    validate() {
-        // the field is valid if the number of errors is zero
+    get is_valid() {
+        // if there is no value there it's not valid
+        if (!this.value) return false
+
+        // otherwise the field is valid if the number of errors is zero
         return this.errors.length === 0
     }
+
 }
 
 
 // the default field configuration
 const defaultConfig = {
-    widget: defaultWidget,
+    widget: {
+        type: 'input',
+    },
 }
 
-
-// the default widget to use for a field
-const defaultWidget = {
-    type: 'input',
-}
-
-
-// export a factory for the class
-export default (...args) =>  new BaseField(...args)
+export default BaseField
 
 
 // end of file

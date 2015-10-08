@@ -17,9 +17,13 @@ class TextField extends BaseField {
             // add the maxLength validator to the stack
             validators.push(maxLength(max_length))
         }
+        // return the list of validators
+        return validators
     }
 }
 
-export default TextField
+
+// export a factory for the class
+export default (...args) =>  new TextField(...args)
 
 // end of file
