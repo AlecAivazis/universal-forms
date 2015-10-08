@@ -35,12 +35,14 @@ describe('Form', function () {
         expect(form.is_bound).to.be.false
     })
 
+
     it('is bound when initialized with valid data', function () {
         // create a form with initial data
         const form = new TestForm(valid_data)
         // make sure its bound
         expect(form.is_bound).to.be.true
     })
+
 
     it('is bound when initialized with invalid data', function(){
         // create the form with invalid initial data
@@ -49,9 +51,6 @@ describe('Form', function () {
         expect(form.is_bound).to.be.true
     })
 
-    it.skip('can have its values set and retrieved', function() {
-
-    })
 
     it('is invalid when there is no initial data', function() {
         // create a form with no data
@@ -60,12 +59,14 @@ describe('Form', function () {
         expect(form.is_valid).to.be.false
     })
 
+
     it('is valid with valid initial data', function() {
         // create a form with valid data
         const form = new TestForm(valid_data)
         // make sure its valid
         expect(form.is_valid).to.be.true
     })
+
 
     it('is invalid with invalid initial data', function() {
         // create a form with invalid data
@@ -74,6 +75,7 @@ describe('Form', function () {
         expect(form.is_valid).to.be.false
     })
 
+
     it.skip('can return the list of errors for invalid data', function() {
         // create a form with invalid data
         const form = new TestForm(invalid_data)
@@ -81,6 +83,7 @@ describe('Form', function () {
         // TODO: this could still be nested arrays
         expect(form.errors).to.be.an('array')
     })
+
 
     it('can iterate can be iterated over', function() {
         // create a form with no data
@@ -93,6 +96,18 @@ describe('Form', function () {
             number_spy()
         }
         // expect the spy to be called for each field
-        expect(number_spy.callCount).to.be.equal(form.fields.length)
+        expect(number_spy.callCount).to.equal(form.fields.length)
+    })
+
+
+    it('can recieve and return the same value', function() {
+        // the value to test
+        const  value = valid_data
+        // create a form with no data
+        const form = new TestForm()
+        // set value of the form
+        form.values = value
+        // make sure the values are retrievable
+        expect(form.values).to.deep.equal(value)
     })
 })

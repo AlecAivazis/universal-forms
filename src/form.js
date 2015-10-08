@@ -9,6 +9,7 @@ import "babel/polyfill"
  */
 export class Form {
 
+
     constructor(values) {
         // bind various functions
         this.updateFields = this.updateFields.bind(this)
@@ -17,6 +18,7 @@ export class Form {
         // assign the initial values to the form if they were given
         this.values = values
     }
+
 
     *[Symbol.iterator]() {
         // for each field in the form
@@ -59,6 +61,19 @@ export class Form {
             // bind the form
             this.is_bound = true
         }
+    }
+
+
+    get values() {
+        // the object to build that represnt that value of the form
+        let value = {}
+        // for every field in the form
+        for (const field of this.fields){
+            // assign the field data to the value
+            value[field.name] = field.value
+        }
+        // return the vaslue hash
+        return value
     }
 
 
