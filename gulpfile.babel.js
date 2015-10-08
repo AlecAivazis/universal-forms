@@ -66,7 +66,7 @@ gulp.task('clean', () => {
 /**
  * Run the test suite.
  */
-gulp.task('tdd', shell.task('karma start'))
+gulp.task('tdd', shell.task('karma start config/karma.conf.js'))
 
 
 // end of file

@@ -2,9 +2,10 @@
 // Generated on Tue Oct 06 2015 21:43:38 GMT-0700 (PDT)
 
 
-var webpack_config = require('./config/webpack.config.js')
+var project_paths = require('./project_paths')
+var unit_test_glob = project_paths.test_entry
+var webpack_config = require(project_paths.webpack_config)
 
-var unit_test_glob = 'tests/**/test_*.js'
 var preprocessors = {}
 preprocessors[unit_test_glob] = ['webpack']
 

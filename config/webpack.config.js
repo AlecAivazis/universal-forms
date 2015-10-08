@@ -10,12 +10,8 @@ var project_paths = require('./project_paths')
 
 // default to using development configuration
 var devtool = 'source-map'
-var plugins = [
-    // new webpack.BannerPlugin(
-    //     "require('source-map-support').install();",
-    //     { raw: true, entryOnly: false }
-    // )
-]
+var plugins = []
+
 // if we are in a production environment
 if (process.env.NODE_ENV === 'production') {
     // use production configuration instead
@@ -36,14 +32,20 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'eslint',
-                include: project_paths.source_dir,
+                include: [
+                    project_paths.source_dir,
+                    project_paths.test_dir,
+                ]
             },
         ],
         loaders: [
             {
                 test: /\.js$/,
                 loader: 'babel',
-                include: project_paths.source_dir,
+                include: [
+                    project_paths.source_dir,
+                    project_paths.test_dir,
+                ],
                 query: {
                     stage: 0,
                 }

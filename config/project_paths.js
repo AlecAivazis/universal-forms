@@ -23,8 +23,9 @@ var config_dir = path.join(rute, 'config')
 module.exports = {
     // directories
     root_dir: rute,
-    source_dir: source_dir,
-    build_dir: build_dir,
+    source_dir,
+    build_dir,
+    test_dir,
     // entry points
     source_entry: path.join(source_dir, 'index.js'),
     test_entry: path.join(test_dir, '**/test_*.js'),
