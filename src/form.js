@@ -1,5 +1,6 @@
 // thirdparty imports
 import Immutable from 'immutable'
+import flatten from 'lodash/array/flattenDeep'
 // make sure the babel polyfill is loaded
 import "babel/polyfill"
 
@@ -74,6 +75,12 @@ export class Form {
         }
         // return the vaslue hash
         return value
+    }
+
+
+    get errors() {
+        // flatten the list of errors
+        return flatten(this.fields.map((field) => field.errors))
     }
 
 

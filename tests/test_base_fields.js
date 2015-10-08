@@ -10,7 +10,6 @@ describe('BaseFields', function() {
     })
 
 
-
     it('has a name', function() {
         expect(base_field.name).to.be.a('string')
     })
@@ -72,6 +71,4 @@ describe('BaseFields', function() {
         // check that the value was used
         expect(test_field.value).to.equal(test_value)
     })
-
-
 })

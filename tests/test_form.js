@@ -76,7 +76,7 @@ describe('Form', function () {
     })
 
 
-    it.skip('can return the list of errors for invalid data', function() {
+    it('can return the list of errors for invalid data', function() {
         // create a form with invalid data
         const form = new TestForm(invalid_data)
         // make sure the errors are a list
