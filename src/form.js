@@ -2,7 +2,7 @@
 import Immutable from 'immutable'
 import flatten from 'lodash/array/flattenDeep'
 // make sure the babel polyfill is loaded
-import "babel/polyfill"
+import 'babel/polyfill'
 
 /**
  * This class provides basic form functionalities including validation
@@ -23,7 +23,7 @@ export class Form {
 
     *[Symbol.iterator]() {
         // for each field in the form
-        for(const field of this.fields) {
+        for (const field of this.fields) {
             // return the field
             yield field
         }
@@ -32,12 +32,12 @@ export class Form {
 
     get invalid_fields() {
         // if there the form is not bound
-        if (!this.is_bound){
-            throw 'Form error: asking for invalid fields of an unbound form.'
+        if (!this.is_bound) {
+            throw new Error('Form error: asking for invalid fields of an unbound form.')
         }
 
         // grab the invalid fields
-        return this.fields.filter((field) => !field.is_valid )
+        return this.fields.filter((field) => !field.is_valid)
     }
 
 
@@ -48,7 +48,9 @@ export class Form {
 
     get is_valid() {
         // if the form is not bound
-        if (!this.is_bound) return false
+        if (!this.is_bound) {
+            return false
+        }
         // the form is valid of there are no invalid fields
         return this.invalid_fields.length === 0
     }
@@ -67,9 +69,9 @@ export class Form {
 
     get values() {
         // the object to build that represnt that value of the form
-        let value = {}
+        const value = {}
         // for every field in the form
-        for (const field of this.fields){
+        for (const field of this.fields) {
             // assign the field data to the value
             value[field.name] = field.value
         }

@@ -6,7 +6,7 @@ export default function(length) {
 
     return function(str) {
         // if the string not greater than length
-        if (!isLength(str, length, Infinity)){
+        if (!isLength(str, length, Infinity)) {
             // throw an error
             throw new Error(`${str} is shorter than ${length}`)
         // otherwise the string is greater than the minimum length

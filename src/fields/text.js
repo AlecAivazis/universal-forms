@@ -9,7 +9,7 @@ class TextField extends BaseField {
     // return the validators for the field
     get validators() {
         // the list of validators to apply to the text field
-        let validators = []
+        const validators = []
         // grab the used configuration parameters
         const {max_length} = this.configuration
         // if there is a max length specified in the configuration
@@ -24,6 +24,6 @@ class TextField extends BaseField {
 
 
 // export a factory for the class
-export default (...args) =>  new TextField(...args)
+export default (...args) => new TextField(...args)
 
 // end of file

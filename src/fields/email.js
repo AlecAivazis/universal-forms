@@ -13,6 +13,6 @@ class EmailField extends BaseField {
 
 
 // export a factory for the class
-export default (...args) =>  new EmailField(...args)
+export default (...args) => new EmailField(...args)
 
 // end of file

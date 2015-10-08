@@ -1,10 +1,11 @@
 {
   "name": "universal-forms",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Easily manage universal forms with both client and server side validation.",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
-    "test": "karma"
+    "test": "gulp test",
+    "prepublish" : "gulp build-production",
   },
   "repository": {
     "type": "git",
@@ -32,11 +33,17 @@
   "devDependencies": {
     "babel": "^5.8.23",
     "babel-core": "^5.8.25",
+    "babel-eslint": "^4.1.3",
     "babel-loader": "^5.3.2",
     "chai": "^3.3.0",
+    "del": "^2.0.2",
+    "eslint": "^1.6.0",
+    "eslint-loader": "^1.0.0",
     "gulp": "^3.9.0",
-    "gulp-mocha": "^2.1.3",
+    "gulp-env": "^0.2.0",
     "gulp-flowtype": "^0.4.8",
+    "gulp-mocha": "^2.1.3",
+    "gulp-shell": "^0.5.0",
     "karma": "^0.13.10",
     "karma-babel-preprocessor": "^5.2.2",
     "karma-chai": "^0.1.0",
@@ -48,6 +55,7 @@
     "mocha": "^2.3.3",
     "phantomjs": "^1.9.18",
     "sinon": "git+https://github.com/uberVU/Sinon.JS",
-    "webpack": "^1.12.2"
+    "webpack": "^1.12.2",
+    "webpack-stream": "^2.1.1"
   }
 }

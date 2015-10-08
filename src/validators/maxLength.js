@@ -6,7 +6,7 @@ export default function(length) {
 
     return function(str) {
         // if the string is greater than the max length
-        if (!isLength(str, 0, length)){
+        if (!isLength(str, 0, length)) {
             // throw an error
             throw new Error(`${str} is longer than ${length}`)
         // otherwise the string is less than the max length

@@ -2,7 +2,7 @@
 // Generated on Tue Oct 06 2015 21:43:38 GMT-0700 (PDT)
 
 
-var webpack_config = require('./webpack.config.js')
+var webpack_config = require('./config/webpack.config.js')
 
 var unit_test_glob = 'tests/**/test_*.js'
 var preprocessors = {}

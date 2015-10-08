@@ -5,5 +5,5 @@ import minLength from './minLength'
 export default {
     isEmail,
     maxLength,
-    minLength
+    minLength,
 }
