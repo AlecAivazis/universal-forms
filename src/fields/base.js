@@ -36,9 +36,34 @@ class BaseField {
         return this.configuration.widget
     }
 
+    get errors() {
+        // create a list of error hashes out of the validators that do not pass
+        return this.validators.map(function(validate){
+            // looking for validation errors
+            try {
+                // check the current value agains the validator
+                validate(this.value) 
+            // if an error was thrown
+            } catch (err) {
+                // return the error message
+                return err.message
+            }
+        // clear the undefined validators
+        }).filter((validator) => validator)
+    }
+
+    set value(value) {
+        this._value = value
+    }
+
+    get value() {
+        return _.value
+    }
+
     // validate the value based on the fields validators
     validate() {
-
+        // the field is valid if the number of errors is zero
+        return this.errors.length === 0
     }
 }
 
