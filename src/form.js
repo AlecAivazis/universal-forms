@@ -11,6 +11,8 @@ export class Form {
         // bind various functions
         this.validate = this.validate.bind(this)
         this.updateFields = this.updateFields.bind(this)
+        // start the form as unbound
+        this.is_bound = false
         // assign the initial values to the form if they were given
         this.values = values
     }
@@ -32,14 +34,9 @@ export class Form {
     }
 
 
-    get is_bound() {
-        return this.values === {}
-    }
-
-
     get is_valid() {
         // the form is valid of there are no invalid fields
-        return this.invalid_fields.length === 0
+        return this.is_bound && this.invalid_fields.length === 0
     }
 
 
@@ -50,6 +47,8 @@ export class Form {
             this.updateFields(Immutable.Map(values))
             // validate the form
             this.validate()
+            // bind the form
+            this.is_bound = true
         }
     }
 
