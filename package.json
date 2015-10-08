@@ -1,6 +1,6 @@
 {
   "name": "universal-forms",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Easily manage universal forms with both client and server side validation.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aaivazis/moonlux-forms.git"
+    "url": "git+https://github.com/aaivazis/universal-forms.git"
   },
   "keywords": [
     "universal",
@@ -20,9 +20,9 @@
   "author": "Alec Aivazis <alec@aivazis.com> (alec@aivazis.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aaivazis/moonlux-forms/issues"
+    "url": "https://github.com/aaivazis/universal-forms/issues"
   },
-  "homepage": "https://github.com/aaivazis/moonlux-forms#readme",
+  "homepage": "https://github.com/aaivazis/universal-forms#readme",
   "dependencies": {
     "babel": "^5.8.23",
     "chai": "^3.3.0",
