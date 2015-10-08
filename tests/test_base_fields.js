@@ -3,7 +3,7 @@ import BaseField from '../src/fields/base'
 
 describe('BaseFields', function() {
 
-    let base_field = 
+    let base_field
 
     beforeEach(function() {
         base_field = new BaseField('hello')
