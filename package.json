@@ -1,11 +1,11 @@
 {
   "name": "universal-forms",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Easily manage universal forms with both client and server side validation.",
   "main": "build/index.js",
   "scripts": {
     "test": "gulp test",
-    "prepublish" : "gulp build-production",
+    "prepublish" : "gulp build-production"
   },
   "repository": {
     "type": "git",

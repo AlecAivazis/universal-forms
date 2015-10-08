@@ -11,19 +11,19 @@ var project_paths = require('./project_paths')
 // default to using development configuration
 var devtool = 'source-map'
 var plugins = [
-    new webpack.BannerPlugin(
-        "require('source-map-support').install();",
-        { raw: true, entryOnly: false }
-    )
+    // new webpack.BannerPlugin(
+    //     "require('source-map-support').install();",
+    //     { raw: true, entryOnly: false }
+    // )
 ]
 // if we are in a production environment
 if (process.env.NODE_ENV === 'production') {
     // use production configuration instead
-    plugins.push(
+    plugins = [
         new webpack.optimize.UglifyJsPlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.DedupePlugin()
-    )
+        new webpack.optimize.DedupePlugin(),
+    ]
     // don't use any devtools
     devtool = ''
 }
@@ -61,19 +61,6 @@ module.exports = {
     output: {
         libraryTarget: 'commonjs2',
     },
-    target: 'node',
-    node: {
-        console: false,
-        process: true,
-        global: true,
-        Buffer: true,
-        __filename: false,
-        __dirname: false,
-    },
-    externals: [
-        // any required module that fits this regex is NOT bundled
-        /^[a-zA-z\-0-9]+$/
-    ],
     plugins: plugins,
     devtool: devtool,
 }

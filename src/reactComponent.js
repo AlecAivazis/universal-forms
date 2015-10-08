@@ -1,7 +1,7 @@
 // third party imports
 import React from 'react'
 
-class Form extends React.Component {
+class UniversalForm extends React.Component {
 
 
     static propTypes = {}
@@ -127,7 +127,7 @@ const styles = {
     },
 }
 
-export default Form
+export default UniversalForm
 
 
 // end of file

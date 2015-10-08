@@ -1,3 +1,9 @@
-export * from './text'
-export * from './email'
-export * from './base'
+import Text from './text'
+import Email from './email'
+import Base from './base'
+
+export default {
+    Text,
+    Email,
+    Base,
+}

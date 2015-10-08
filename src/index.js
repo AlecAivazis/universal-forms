@@ -1,4 +1,13 @@
-export * from './form'
-export * from './formComponent'
-export * from './validators'
-export * from './fields'
+// export the react component
+import ReactComponent from './reactComponent'
+import validators from './validators'
+import fields from './fields'
+import BaseForm from './form'
+
+// export the validators
+export default {
+    UniversalFormComponent: ReactComponent,
+    validators,
+    fields,
+    BaseForm,
+}
