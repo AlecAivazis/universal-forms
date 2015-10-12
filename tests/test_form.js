@@ -2,8 +2,8 @@
 import sinon from 'sinon'
 // local imports
 import Form from '../src/form'
-import EmailField from '../src/fields/email'
-import TextField from '../src/fields/text'
+import EmailField from '../src/fields/EmailField'
+import TextField from '../src/fields/TextField'
 
 export default class TestForm extends Form {
     static fields = [

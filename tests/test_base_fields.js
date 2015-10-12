@@ -1,5 +1,5 @@
-// import the BaseField 
-import BaseField from '../src/fields/base'
+// import the BaseField
+import BaseField from '../src/fields/BaseField'
 
 describe('BaseFields', function() {
 

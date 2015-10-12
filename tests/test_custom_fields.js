@@ -1,7 +1,7 @@
 // thirdpart imports
 import sinon from 'sinon'
 // import the base field
-import BaseField from '../src/fields/base'
+import BaseField from '../src/fields/BaseField'
 // import a validator to use in a test
 import isEmail from '../src/validators/isEmail'
 
@@ -57,5 +57,5 @@ describe('CustomField', function() {
         expect(validator1.called).to.be.true
         expect(validator2.called).to.be.true
     })
-    
+
 })

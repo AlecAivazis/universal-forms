@@ -9,13 +9,14 @@ import shell from 'gulp-shell'
 // local imports
 import project_paths from './config/project_paths'
 
+// const  = file => file.history[0].slice(file.base.length, -3)
 
 /**
  * Build entry point.
  */
 gulp.task('build', ['clean'], () => {
-    return gulp.src(project_paths.source_entry)
-               .pipe(named())
+    return gulp.src([project_paths.source_entry])
+               .pipe(named()) // include relative path in filename
                .pipe(webpack(require(project_paths.webpack_config)))
                .pipe(gulp.dest(project_paths.build_dir))
 })
@@ -31,7 +32,7 @@ gulp.task('watch', ['clean'], () => {
     }
 
     return gulp.src(project_paths.source_entry)
-               .pipe(named())
+               .pipe(named()) // include relative path in filename
                .pipe(webpack(config))
                .pipe(gulp.dest(project_paths.build_dir))
 })
@@ -49,7 +50,7 @@ gulp.task('build-production', ['clean'], () => {
     })
     // build the client
     return gulp.src(project_paths.source_entry)
-               .pipe(named())
+               .pipe(named()) // include relative path in filename
                .pipe(webpack(require(project_paths.webpack_config)))
                .pipe(gulp.dest(project_paths.build_dir))
 })

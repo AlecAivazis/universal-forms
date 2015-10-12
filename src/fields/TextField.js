@@ -1,4 +1,4 @@
-import BaseField from './base'
+import BaseField from './BaseField'
 import maxLength from '../validators/maxLength'
 
 /**

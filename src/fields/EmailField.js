@@ -1,5 +1,5 @@
 // local imports
-import BaseField from './base'
+import BaseField from './BaseField'
 import isEmail from '../validators/isEmail'
 
 /**

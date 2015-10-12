@@ -1,9 +1,9 @@
-import Text from './text'
-import Email from './email'
-import Base from './base'
+import TextField from './TextField'
+import EmailField from './EmailField'
+import BaseField from './BaseField'
 
 export default {
-    Text,
-    Email,
-    Base,
+    TextField,
+    EmailField,
+    BaseField,
 }
