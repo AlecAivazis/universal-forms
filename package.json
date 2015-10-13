@@ -1,6 +1,6 @@
 {
   "name": "universal-forms",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Easily manage universal forms with both client and server side validation.",
   "main": "build/index.js",
   "scripts": {
