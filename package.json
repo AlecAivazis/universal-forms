@@ -27,7 +27,7 @@
   "dependencies": {
     "immutable": "^3.7.5",
     "lodash": "^3.10.1",
-    "react": "^0.13.3",
+    "react": "0.14",
     "validator": "^4.1.0"
   },
   "devDependencies": {

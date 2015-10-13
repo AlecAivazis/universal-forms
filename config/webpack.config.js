@@ -52,6 +52,16 @@ module.exports = {
             },
         ],
     },
+    externals: [
+        {
+            "react": {
+                root: "React",
+                commonjs2: "react",
+                commonjs: "react",
+                amd: "react"
+            }
+        }
+    ],
     resolve: {
         extensions: ['', '.js'],
         root: [project_paths.source_dir],

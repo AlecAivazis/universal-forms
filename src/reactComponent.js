@@ -10,9 +10,9 @@ class UniversalForm extends React.Component {
     static defaultProps = {}
 
 
-    constructor(props) {
+    constructor(props, ...args) {
         // instantiate this
-        super(props)
+        super(props, ...args)
         // set the initial state
         this.state = {
             // create a new form object with the intial data set

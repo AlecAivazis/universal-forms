@@ -2,7 +2,7 @@
 import Immutable from 'immutable'
 import flatten from 'lodash/array/flattenDeep'
 // make sure the babel polyfill is loaded
-import 'babel/polyfill'
+// import 'babel/polyfill'
 
 /**
  * This class provides basic form functionalities including validation
@@ -21,13 +21,13 @@ export class Form {
     }
 
 
-    *[Symbol.iterator]() {
-        // for each field in the form
-        for (const field of this.fields) {
-            // return the field
-            yield field
-        }
-    }
+    // *[Symbol.iterator]() {
+    //     // for each field in the form
+    //     for (const field of this.fields) {
+    //         // return the field
+    //         yield field
+    //     }
+    // }
 
 
     get invalid_fields() {
