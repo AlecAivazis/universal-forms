@@ -52,7 +52,7 @@ class UniversalForm extends React.Component {
         // the object containing the form data
         const formData = {}
         // go over all of the fields in the form
-        for (const {name} of this.state.form.get_fields()) {
+        for (const {name} of this.state.form.fields) {
             // add the input value to the object
             formData[name] = this.refs[name].value
         }

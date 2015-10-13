@@ -51,8 +51,8 @@ export class Form {
         if (!this.is_bound) {
             return false
         }
-        // the form is valid of there are no invalid fields
-        return this.invalid_fields.length === 0
+        // the form is valid of there are no invalid fields that are required
+        return this.invalid_fields.filter((field) => field.required).length === 0
     }
 
 

@@ -35,6 +35,10 @@ class BaseField {
         return this.configuration.widget || defaultWidget
     }
 
+    get required() {
+        return this.configuration.required
+    }
+
 
     get errors() {
         // if there is no value defined
@@ -85,6 +89,7 @@ class BaseField {
 // the default field configuration
 const defaultConfig = {
     widget: defaultWidget,
+    required: true,
 }
 
 const defaultWidget = {

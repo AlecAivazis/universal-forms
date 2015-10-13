@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "test": "gulp test",
-    "prepublish" : "gulp build-production"
+    "prepublish": "gulp build-production"
   },
   "repository": {
     "type": "git",
