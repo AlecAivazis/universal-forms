@@ -7,7 +7,9 @@ class UniversalForm extends React.Component {
     static propTypes = {}
 
 
-    static defaultProps = {}
+    static defaultProps = {
+        submitText: 'submit',
+    }
 
 
     constructor(props, ...args) {
@@ -55,24 +57,31 @@ class UniversalForm extends React.Component {
             // add the input value to the object
             formData[name] = this.refs[name].value
         }
+        console.log(formData)
         // return the data object
         return formData
     }
 
     get submitButton() {
         // grab the used props
-        const {onSubmit} = this.props
+        const {onSubmit, submitButtonStyle, submitText, submitButton} = this.props
+        // if a custom submit button was return
+        if (submitButton) {
+            // use it instead
+            return submitButton
+        }
+
         // if there is an onClick handler
         if (onSubmit) {
             return (
-                <span style={styles.submit_button} onClick={this.onSubmit}>
-                    send
+                <span style={{...styles.submitButton, ...submitButtonStyle}} onClick={this.submitForm}>
+                    {submitText}
                 </span>
             )
         // otherwise use a native button
         }
         return (
-            <input style={styles.submit_button} type='submit' value='send'/>
+            <input style={{...styles.submitButton, ...submitButtonStyle}} type='submit' value={submitText}/>
         )
     }
 
@@ -95,13 +104,14 @@ class UniversalForm extends React.Component {
             labelStyle,
             inputStyle,
             fieldStyle,
+            submitContainerStyle,
             ...unused_props,
             action,
         } = this.props
 
         // render the component
         return (
-            <form {...unused_props} ref='form' action={action}>
+            <form {...unused_props} ref='form' action={action} method='post'>
                 {this.state.form.fields.map(({name, label, widget}) => {
                     // the input widget
                     const input_widget = React.cloneElement(this.getElementForWidget(widget), {
@@ -117,7 +127,7 @@ class UniversalForm extends React.Component {
                         </div>
                     )
                 })}
-                <div style={styles.submit_container}>
+                <div style={{...styles.submitContainer, ...submitContainerStyle}}>
                     {this.submitButton}
                 </div>
             </form>
@@ -126,11 +136,11 @@ class UniversalForm extends React.Component {
 }
 
 const styles = {
-    submit_container: {
+    submitContainer: {
         textAlign: 'right',
         marginTop: 30,
     },
-    submit_button: {
+    submitButton: {
         backgroundColor: '#2F5EBC',
         padding: 20,
         width: 150,
