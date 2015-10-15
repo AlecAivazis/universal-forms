@@ -21,7 +21,6 @@ class UniversalForm extends React.Component {
         // bind various functions
         this.focus = this.focus.bind(this)
         this.submitForm = this.submitForm.bind(this)
-        this.getFormData = this.getFormData.bind(this)
     }
 
 
@@ -48,7 +47,7 @@ class UniversalForm extends React.Component {
     }
 
 
-    getFormData() {
+    get formData() {
         // the object containing the form data
         const formData = {}
         // go over all of the fields in the form
@@ -60,13 +59,30 @@ class UniversalForm extends React.Component {
         return formData
     }
 
+    get submitButton() {
+        // grab the used props
+        const {onSubmit} = this.props
+        // if there is an onClick handler
+        if (onSubmit) {
+            return (
+                <span style={styles.submit_button} onClick={this.onSubmit}>
+                    send
+                </span>
+            )
+        // otherwise use a native button
+        }
+        return (
+            <input style={styles.submit_button} type='submit' value='send'/>
+        )
+    }
+
 
     // submit the form using the provided handler
     submitForm() {
         // get the submit handler from the component props
         const {onSubmit} = this.props
         // the object with the form data
-        const formData = JSON.stringify(this.getFormData())
+        const formData = JSON.stringify(this.formData)
         // call the handler with the serialized data
         onSubmit(formData)
     }
@@ -80,11 +96,12 @@ class UniversalForm extends React.Component {
             inputStyle,
             fieldStyle,
             ...unused_props,
+            action,
         } = this.props
 
         // render the component
         return (
-            <form {...unused_props} ref='form'>
+            <form {...unused_props} ref='form' action={action}>
                 {this.state.form.fields.map(({name, label, widget}) => {
                     // the input widget
                     const input_widget = React.cloneElement(this.getElementForWidget(widget), {
@@ -101,9 +118,7 @@ class UniversalForm extends React.Component {
                     )
                 })}
                 <div style={styles.submit_container}>
-                    <span style={styles.submit_button} onClick={this.submitForm}>
-                        send
-                    </span>
+                    {this.submitButton}
                 </div>
             </form>
         )
@@ -124,6 +139,7 @@ const styles = {
         color: 'white',
         cursor: 'pointer',
         textTransform: 'capitalize',
+        border: 'none',
     },
 }
 
