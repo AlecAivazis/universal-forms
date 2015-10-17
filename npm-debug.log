@@ -1,0 +1,131 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.14.3
+3 info using node@v0.12.4
+4 verbose node symlink /usr/local/bin/node
+5 verbose publish [ '.' ]
+6 silly cache add args [ '.', null ]
+7 verbose cache add spec .
+8 silly cache add parsed spec { raw: '.',
+8 silly cache add   scope: null,
+8 silly cache add   name: null,
+8 silly cache add   rawSpec: '.',
+8 silly cache add   spec: '/Users/alec/dv/universal-forms',
+8 silly cache add   type: 'directory' }
+9 verbose addLocalDirectory /Users/alec/.npm/universal-forms/0.0.5/package.tgz not in flight; packing
+10 verbose tar pack [ '/Users/alec/.npm/universal-forms/0.0.5/package.tgz',
+10 verbose tar pack   '/Users/alec/dv/universal-forms' ]
+11 verbose tarball /Users/alec/.npm/universal-forms/0.0.5/package.tgz
+12 verbose folder /Users/alec/dv/universal-forms
+13 info prepublish universal-forms@0.0.5
+14 verbose unsafe-perm in lifecycle true
+15 verbose addLocalTarball adding from inside cache /Users/alec/.npm/universal-forms/0.0.5/package.tgz
+16 silly cache afterAdd universal-forms@0.0.5
+17 verbose afterAdd /Users/alec/.npm/universal-forms/0.0.5/package/package.json not in flight; writing
+18 verbose afterAdd /Users/alec/.npm/universal-forms/0.0.5/package/package.json written
+19 silly publish { name: 'universal-forms',
+19 silly publish   version: '0.0.5',
+19 silly publish   description: 'Easily manage universal forms with both client and server side validation.',
+19 silly publish   main: 'build/index.js',
+19 silly publish   scripts: { test: 'gulp test', prepublish: 'gulp build-production' },
+19 silly publish   repository:
+19 silly publish    { type: 'git',
+19 silly publish      url: 'git+https://github.com/aaivazis/universal-forms.git' },
+19 silly publish   keywords: [ 'universal', 'forms', 'react', 'universal', 'isomorphic' ],
+19 silly publish   author:
+19 silly publish    { name: 'Alec Aivazis',
+19 silly publish      email: 'alec@aivazis.com',
+19 silly publish      url: 'alec@aivazis.com' },
+19 silly publish   license: 'MIT',
+19 silly publish   bugs: { url: 'https://github.com/aaivazis/universal-forms/issues' },
+19 silly publish   homepage: 'https://github.com/aaivazis/universal-forms#readme',
+19 silly publish   dependencies:
+19 silly publish    { immutable: '^3.7.5',
+19 silly publish      lodash: '^3.10.1',
+19 silly publish      react: '0.14',
+19 silly publish      validator: '^4.1.0',
+19 silly publish      'vinyl-named': '^1.1.0' },
+19 silly publish   devDependencies:
+19 silly publish    { babel: '^5.8.23',
+19 silly publish      'babel-core': '^5.8.25',
+19 silly publish      'babel-eslint': '^4.1.3',
+19 silly publish      'babel-loader': '^5.3.2',
+19 silly publish      chai: '^3.3.0',
+19 silly publish      del: '^2.0.2',
+19 silly publish      eslint: '^1.6.0',
+19 silly publish      'eslint-loader': '^1.0.0',
+19 silly publish      gulp: '^3.9.0',
+19 silly publish      'gulp-env': '^0.2.0',
+19 silly publish      'gulp-flowtype': '^0.4.8',
+19 silly publish      'gulp-mocha': '^2.1.3',
+19 silly publish      'gulp-shell': '^0.5.0',
+19 silly publish      karma: '^0.13.10',
+19 silly publish      'karma-babel-preprocessor': '^5.2.2',
+19 silly publish      'karma-chai': '^0.1.0',
+19 silly publish      'karma-chrome-launcher': '^0.2.0',
+19 silly publish      'karma-mocha': '^0.2.0',
+19 silly publish      'karma-mocha-reporter': '^1.1.1',
+19 silly publish      'karma-phantomjs-launcher': '^0.2.1',
+19 silly publish      'karma-sourcemap-loader': '^0.3.5',
+19 silly publish      'karma-webpack': '^1.7.0',
+19 silly publish      mocha: '^2.3.3',
+19 silly publish      phantomjs: '^1.9.18',
+19 silly publish      sinon: 'git+https://github.com/uberVU/Sinon.JS.git',
+19 silly publish      webpack: '^1.12.2',
+19 silly publish      'webpack-stream': '^2.1.1' },
+19 silly publish   readme: '# Universal Forms\n\nYet another package for managing forms on the client and server. This one comes with a customizable react component!\n',
+19 silly publish   readmeFilename: 'README.md',
+19 silly publish   gitHead: '972583ef5dae6688f7f7e64eec2d459fbea4eb97',
+19 silly publish   _id: 'universal-forms@0.0.5',
+19 silly publish   _shasum: '462ea3e5aa97f8b0d4b5fb57c62c75ede51fdb8e',
+19 silly publish   _from: '.' }
+20 verbose getPublishConfig undefined
+21 silly mapToRegistry name universal-forms
+22 silly mapToRegistry using default registry
+23 silly mapToRegistry registry https://registry.npmjs.org/
+24 silly mapToRegistry uri https://registry.npmjs.org/universal-forms
+25 verbose publish registryBase https://registry.npmjs.org/
+26 silly publish uploading /Users/alec/.npm/universal-forms/0.0.5/package.tgz
+27 verbose request uri https://registry.npmjs.org/universal-forms
+28 verbose request sending authorization for write operation
+29 info attempt registry request try #1 at 18:46:09
+30 verbose request using bearer token for auth
+31 verbose request id 7dfa1f15128ae9c6
+32 http request PUT https://registry.npmjs.org/universal-forms
+33 http 403 https://registry.npmjs.org/universal-forms
+34 verbose headers { 'content-type': 'application/json',
+34 verbose headers   'cache-control': 'max-age=60',
+34 verbose headers   'content-length': '95',
+34 verbose headers   'accept-ranges': 'bytes',
+34 verbose headers   date: 'Sat, 17 Oct 2015 01:46:16 GMT',
+34 verbose headers   via: '1.1 varnish',
+34 verbose headers   connection: 'keep-alive',
+34 verbose headers   'x-served-by': 'cache-dfw1826-DFW',
+34 verbose headers   'x-cache': 'MISS',
+34 verbose headers   'x-cache-hits': '0',
+34 verbose headers   'x-timer': 'S1445046372.586548,VS0,VE3461' }
+35 verbose request invalidating /Users/alec/.npm/registry.npmjs.org/universal-forms on PUT
+36 error publish Failed PUT 403
+37 verbose stack Error: "You cannot publish over the previously published version 0.0.5." : universal-forms
+37 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:263:12)
+37 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:251:14)
+37 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:171:14)
+37 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+37 verbose stack     at Request.emit (events.js:110:17)
+37 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1073:14)
+37 verbose stack     at Request.emit (events.js:129:20)
+37 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1019:12)
+37 verbose stack     at IncomingMessage.emit (events.js:129:20)
+37 verbose stack     at _stream_readable.js:908:16
+38 verbose statusCode 403
+39 verbose pkgid universal-forms
+40 verbose cwd /Users/alec/dv/universal-forms
+41 error Darwin 14.3.0
+42 error argv "node" "/usr/local/bin/npm" "publish"
+43 error node v0.12.4
+44 error npm  v2.14.3
+45 error code E403
+46 error "You cannot publish over the previously published version 0.0.5." : universal-forms
+47 error If you need help, you may report this error at:
+47 error     <https://github.com/npm/npm/issues>
+48 verbose exit [ 1, true ]

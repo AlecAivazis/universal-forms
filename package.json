@@ -1,6 +1,6 @@
 {
   "name": "universal-forms",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Easily manage universal forms with both client and server side validation.",
   "main": "build/index.js",
   "scripts": {
@@ -28,7 +28,8 @@
     "immutable": "^3.7.5",
     "lodash": "^3.10.1",
     "react": "0.14",
-    "validator": "^4.1.0"
+    "validator": "^4.1.0",
+    "vinyl-named": "^1.1.0"
   },
   "devDependencies": {
     "babel": "^5.8.23",
