@@ -15,6 +15,7 @@ class BaseField {
         }
         // use the initial value from the params
         this.value = initialValue
+        this.widget = null
     }
 
 
@@ -32,7 +33,13 @@ class BaseField {
 
     get widget() {
         // grab the widget from the configuration object
-        return this.configuration.widget || defaultWidget
+        return this.configuration.widget || this._widget || defaultWidget
+    }
+
+
+    set widget(widget) {
+        this._widget = widget
+
     }
 
     get required() {

@@ -48,6 +48,8 @@ class UniversalForm extends React.Component {
             return <input {...unused_props}/>
         } else if (type === 'textarea') {
             return <textarea {...unused_props}/>
+        } else if (type === 'password') {
+            return <input type='password' {...unused_props}/>
         }
     }
 
@@ -63,6 +65,7 @@ class UniversalForm extends React.Component {
         // return the data object
         return formData
     }
+
 
     get submitButton() {
         // grab the used props
