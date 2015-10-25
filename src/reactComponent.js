@@ -4,11 +4,14 @@ import React from 'react'
 class UniversalForm extends React.Component {
 
 
-    static propTypes = {}
+    static propTypes = {
+        resultAsString: React.PropTypes.bool,
+    }
 
 
     static defaultProps = {
         submitText: 'submit',
+        resultAsString: false,
     }
 
 
@@ -57,7 +60,6 @@ class UniversalForm extends React.Component {
             // add the input value to the object
             formData[name] = this.refs[name].value
         }
-        console.log(formData)
         // return the data object
         return formData
     }
@@ -89,9 +91,9 @@ class UniversalForm extends React.Component {
     // submit the form using the provided handler
     submitForm() {
         // get the submit handler from the component props
-        const {onSubmit} = this.props
-        // the object with the form data
-        const formData = JSON.stringify(this.formData)
+        const {onSubmit, resultAsString} = this.props
+        // stringify the form data if the form was configured to do so
+        const formData = resultAsString ? JSON.stringify(this.formData) : this.formData
         // call the handler with the serialized data
         onSubmit(formData)
     }
