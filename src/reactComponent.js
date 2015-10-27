@@ -13,12 +13,17 @@ class UniversalForm extends React.Component {
 
 
     constructor(props, ...args) {
+        // grab the used props
+        const {initialData, form as universalForm, ...unusedProps} = props
         // instantiate this
-        super(props, ...args)
+        super(unusedProps, ...args)
+        // create the form  out of the initial data
+        const form = new universalForm(initialData)
         // set the initial state
         this.state = {
             // create a new form object with the intial data set
-            form: new props.form(props.initialData),
+            form,
+            data: form.values
         }
         // bind various functions
         this.focus = this.focus.bind(this)
@@ -40,6 +45,21 @@ class UniversalForm extends React.Component {
     }
 
 
+    clear() {
+        // create a version of the form data with empty values
+        const emptyForm = {}
+        // for each field in the form
+        for (const {name} of this.state.form.fields) {
+            // set the field to an empty value
+            emptyForm[name] = ''
+        }
+        // update the state variable to the empty form values
+        this.setState({
+            data: emptyForm,
+        })
+    }
+
+
     getElementForWidget({type = 'input', ...unused_props}) {
         if (type === 'input') {
             return <input {...unused_props}/>
@@ -50,17 +70,10 @@ class UniversalForm extends React.Component {
 
 
     get formData() {
-        // the object containing the form data
-        const formData = {}
-        // go over all of the fields in the form
-        for (const {name} of this.state.form.fields) {
-            // add the input value to the object
-            formData[name] = this.refs[name].value
-        }
-        console.log(formData)
         // return the data object
-        return formData
+        return this.state.data
     }
+    
 
     get submitButton() {
         // grab the used props
@@ -116,8 +129,17 @@ class UniversalForm extends React.Component {
                     // the input widget
                     const input_widget = React.cloneElement(this.getElementForWidget(widget), {
                         id: name,
-                        ref: name,
+                        ref: `field-${name}`,
                         style: inputStyle,
+                        value: this.state.data[name],
+                        onChange: () => {
+                            this.setState({
+                                data: {
+                                    ...this.state.data,
+                                    [name]: this.refs[`field-${name}`].value
+                                }
+                            })
+                        },
                     })
                     // render the form line
                     return (
