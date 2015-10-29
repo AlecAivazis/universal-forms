@@ -128,6 +128,7 @@ In order to customize the look and feel of the form, the `UniversalFormComponent
 * `submitButtonStyle` styles the submit button
 * `submitContainerStyle` styles the container around the submit button. Useful for defining its own alignment.
 * `submitText` sets the text of the submit button.
+* `method` sets the method used when submitting the form. This prop is only used if `action` is set.
 
 
 # Serverside validation
