@@ -118,7 +118,14 @@ Keep in mind that while this example uses `isomorphic-fetch` to handle the xhr r
 
 ## Customizing the React component
 
-In order to customize the look and feel of the form, the `UniversalFormComponent` has the following properties which style the specified form elements:
+In order to customize the look and feel of the form, the `UniversalFormComponent` has the following properties which style and customize the specified form elements:
+
+* `fieldStyle` styles the element that contains the label and the appropriate widget
+* `widgetStyle` styles the field widget. Additional styles can be passed as paramters when created.
+* `labelStyle` styles the label container
+* `submitButtonStyle` styles the submit button
+* `submitContainerStyle` styles the container around the submit button. Useful for defining its own alignment.
+* `submitText` sets the text of the submit button.
 
 
 # Serverside validation
