@@ -7,9 +7,7 @@ Yet another package for reducing the inevitable code duplication when dealing wi
 
 # Defining the Form
 
-Regardless of wether you're working on the client or the server, the form object is at the center of your validation logic.
-
-Defining a form is easy. Here is an example form you might use to register a user:
+Whether you're working on the client or the server, the form definition is at the center of your validation logic.  Forms are defined as classes, as shown in the example below.  This example shows the definition of a form that you might use to register a user:
 
 ```javascript
 // forms/SignUpForm.js
@@ -38,25 +36,26 @@ The following code examples reference this form.
 
 # Validation on the Server
 
-Even though the validation is managed on the frontend, you still have to validate incoming POSTs in order to prevent against various web vulnerabilities. Luckily, `universal-forms` simplifies this validation. Since `universal-forms` validates the JSON object that is `POST`ed it does not require using express, like I have done in the example below:
+Even though validation is managed on the client, you still have to validate incoming POSTs in order to prevent against various web vulnerabilities. Luckily, `universal-forms` simplifies this validation.
+
+The example below shows how to implement server-side validation using express.  However, `universal-forms` **does NOT require that you use express**.
 
 ```javascript
 // server.js
 
-// thirdparty imports
 import express from 'express'
 import bodyParser from 'body-parser'
-// local imports
+import User from 'path/to/your/user/model'
+// import the form class from the example above
 import SignUpForm from 'forms/SignUpForm'
 
 
-// create the express instance
 const app = express()
 // a json body parser is needed so that the request body is an object
 const jsonParser = bodyParser.json()
 
 app.post('/signup', jsonParser, (req, res) => {
-    // load the form with the data
+    // load the form with the data from the POST
     const form = new SignUpForm(req.body)
     // if the form is valid
     if (form.isValid) {
@@ -71,12 +70,12 @@ app.post('/signup', jsonParser, (req, res) => {
         })
     // otherwise the form is not valid
     } else {
-        // respond with an error
+        // respond with an error detailing the problems with the given form data
         res.status(400).send(`invalid form: ${form.errors}`)
     }
 })
 
-/* other server logic that displays the frontend */  
+/* ... additional logic for serving the frontend ... */  
 
 ```
 
