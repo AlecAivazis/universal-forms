@@ -63,6 +63,8 @@ class SignUpFormComponent extends React.Component {
 
 This will result in a form whose submit button is a traditional `<input>` element and `POST`s to the action parameter when the fields are valid. 
 
+## Specifying a Custom Callback
+
 If you would rather perform the submission yourself over an ajax request, you can simply pass a callback to the `onSubmit` prop:
 
 ```javascript
@@ -129,3 +131,45 @@ In order to customize the look and feel of the form, the `UniversalFormComponent
 
 
 # Serverside validation
+
+Even though the validation is managed on the frontend, you still have to validate incoming POSTs in order to prevent against various web vulnerabilities. Luckily, `universal-forms` simplifies this validation. Since `universal-forms` validates the JSON object that is `POST`ed it does not require using express, like I have done in the example below:
+
+```javascript
+// server.js
+
+// thirdparty imports
+import express from 'express'
+import bodyParser from 'body-parser' 
+// local imports
+import SignUpForm from 'forms/SignUpForm'
+
+
+// create the express instance
+const app = express()
+// a json body parser is needed so that the request body is an object
+const jsonParser = bodyParser.json()
+
+app.post('/signup', jsonParser, (req, res) => {
+    // load the form with the data
+    const form = new SignUpForm(req.body)
+    // if the form is valid
+    if (form.is_valid) {
+        // create a new user model
+        const newUser = new User(form.values)
+        // save it to the database
+        newUser.save((error, user) => {
+            if (error) {
+                res.status(400).send(error.message)
+            }
+            res.send(`created user ${user.id}`)
+        })
+    // otherwise the form is not valid
+    } else {
+        // respond with an error
+        res.status(400).send(`invalid form: ${form.errors}`)
+    }
+})
+
+/* other server logic that displays the frontend */  
+
+```
