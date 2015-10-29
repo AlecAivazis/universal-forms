@@ -6,12 +6,15 @@ class UniversalForm extends React.Component {
 
     static propTypes = {
         resultAsString: React.PropTypes.bool,
+        method: React.PropTypes.string,
+        submitText: React.PropTypes.string,
     }
 
 
     static defaultProps = {
         submitText: 'submit',
         resultAsString: false,
+        method: 'post',
     }
 
 
@@ -112,11 +115,12 @@ class UniversalForm extends React.Component {
             submitContainerStyle,
             ...unused_props,
             action,
+            method,
         } = this.props
 
         // render the component
         return (
-            <form {...unused_props} ref='form' action={action} method='post'>
+            <form {...unused_props} ref='form' action={action} method={method}>
                 {this.state.form.fields.map(({name, label, widget}) => {
                     // the input widget
                     const input_widget = React.cloneElement(this.getElementForWidget(widget), {
