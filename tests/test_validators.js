@@ -2,19 +2,19 @@
 import {isEmail, maxLength, minLength} from '../src/validators'
 
 // a generic test for a validator
-const testValidator = (name, validate, valid_string, invalid_string) => {
+const testValidator = (name, validate, validString, invalidString) => {
     describe(name, function() {
 
         it('throws a ValidationError when invalid', function(){
             // make sure the validator throws the correct error type
-            expect(() => validate(invalid_string)).to.throw(Error)
+            expect(() => validate(invalidString)).to.throw(Error)
         })
 
         it('succeeds when valid', function() {
             // validate the appropriate string
-            const is_valid = validate(valid_string)
+            const isValid = validate(validString)
             // check that it validated
-            expect(is_valid).to.be.true
+            expect(isValid).to.be.true
 
         })
     })

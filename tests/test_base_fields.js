@@ -3,72 +3,72 @@ import BaseField from '../src/fields/BaseField'
 
 describe('BaseFields', function() {
 
-    let base_field
+    let baseField
 
     beforeEach(function() {
-        base_field = new BaseField('hello')
+        baseField = new BaseField('hello')
     })
 
 
     it('has a name', function() {
-        expect(base_field.name).to.be.a('string')
+        expect(baseField.name).to.be.a('string')
     })
 
 
     it('uses the label as a name if not defined', function() {
-        expect(base_field.label).to.be.a('string')
+        expect(baseField.label).to.be.a('string')
     })
 
 
     it('has a widget', function() {
-        expect(base_field.widget).to.be.a('object')
+        expect(baseField.widget).to.be.a('object')
     })
 
 
     it('accepts and retains its value', function() {
         // the value to test
-        const test_value = 'foo'
+        const testValue = 'foo'
         // set the value
-        base_field.value = test_value
+        baseField.value = testValue
         // make sure that it is the same as what we set
-        expect(base_field.value).to.equal(test_value)
+        expect(baseField.value).to.equal(testValue)
     })
 
 
     it('accepts arbitrary configuration params', function() {
         // the paramter to check in both configurations
-        const test_param = 'foo'
+        const testParam = 'foo'
         // the configuration to test
-        const test_config = {
-            [test_param]: 'bar'
+        const testConfig = {
+            [testParam]: 'bar'
         }
         // create the field with the test configuration
-        const test_field = new BaseField('hello', test_config)
+        const testField = new BaseField('hello', testConfig)
         // make sure the configuration parameter gets assign correctly
-        expect(test_field.configuration[test_param]).to.equal(test_config[test_param])
+        expect(testField.configuration[testParam]).to.equal(testConfig[testParam])
     })
 
 
     it('uses the label configuration parameter if present', function() {
         // the label to set
-        const test_label = 'foo'
+        const testLabel = 'foo'
         // create a field with a label
-        const test_field = new BaseField('hello', {
-            label: test_label
+        const testField = new BaseField('hello', {
+            label: testLabel
         })
         // make sure the label was assigned
-        expect(test_field.label).to.equal(test_label)
+        expect(testField.label).to.equal(testLabel)
     })
 
 
     it('uses an initial value if passed as a config param', function() {
         // the value to set
-        const test_value = 'foo'
+        const testValue = 'foo'
         // create the field with the initial value param
-        const test_field = new BaseField('hello', {
-            initialValue: test_value,
+        const testField = new BaseField('hello', {
+            initialValue: testValue,
         })
         // check that the value was used
-        expect(test_field.value).to.equal(test_value)
+        expect(testField.value).to.equal(testValue)
     })
 })

@@ -16,28 +16,28 @@ class CustomField extends BaseField{
 // test the functionalities from fields inheriting from the base
 describe('CustomField', function() {
 
-    let custom_field
+    let customField
 
     beforeEach(function(){
-        custom_field = new CustomField('foo')
+        customField = new CustomField('foo')
     })
 
     it('is valid with a valid value', function() {
         // the value to test
-        const test_value = 'a@a.com'
+        const testValue = 'a@a.com'
         // set the value
-        custom_field.value = test_value
+        customField.value = testValue
         // make sure its invalid
-        expect(custom_field.is_valid).to.be.true
+        expect(customField.isValid).to.be.true
     })
 
     it('is invalid with an invalid value', function() {
         // the value to test
-        const test_value = 'foo'
+        const testValue = 'foo'
         // set the value
-        custom_field.value = test_value
+        customField.value = testValue
         // make sure its invalid
-        expect(custom_field.is_valid).to.be.false
+        expect(customField.isValid).to.be.false
     })
 
     it('calls all of its validators', function() {
@@ -48,11 +48,11 @@ describe('CustomField', function() {
         expect(validator1.called).to.be.false
         expect(validator2.called).to.be.false
         // set the validators of the field to the list
-        custom_field.validators = [validator1, validator2]
+        customField.validators = [validator1, validator2]
         // set a value so that it calls its validators
-        custom_field.value = "foo"
+        customField.value = "foo"
         // figure out if the validator is valid
-        const is_valid = custom_field.is_valid
+        const isValid = customField.isValid
         // make sure both of the validators were called
         expect(validator1.called).to.be.true
         expect(validator2.called).to.be.true

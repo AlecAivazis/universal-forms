@@ -80,7 +80,7 @@ class BaseField {
 
 
     // validate the value based on the fields validators
-    get is_valid() {
+    get isValid() {
         // if there is no value there it's not valid
         if (!this.value) {
             return false

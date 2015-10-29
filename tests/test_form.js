@@ -23,13 +23,13 @@ class OptionalFieldForm extends Form {
 describe('Form', function () {
 
     // a set of correct initial data
-    const valid_data = {
+    const validData = {
         name: 'foo',
         email: 'a@a.com',
     }
 
     // a set of incorrect initial data
-    const invalid_data = {
+    const invalidData = {
         name: 1,
         email: 'foo'
     }
@@ -39,23 +39,23 @@ describe('Form', function () {
         // create a form without initial data
         const form = new TestForm()
         // make sure it is unbound
-        expect(form.is_bound).to.be.false
+        expect(form.isBound).to.be.false
     })
 
 
     it('is bound when initialized with valid data', function () {
         // create a form with initial data
-        const form = new TestForm(valid_data)
+        const form = new TestForm(validData)
         // make sure its bound
-        expect(form.is_bound).to.be.true
+        expect(form.isBound).to.be.true
     })
 
 
     it('is bound when initialized with invalid data', function(){
         // create the form with invalid initial data
-        const form = new TestForm(invalid_data)
+        const form = new TestForm(invalidData)
         // make sure its bound
-        expect(form.is_bound).to.be.true
+        expect(form.isBound).to.be.true
     })
 
 
@@ -63,29 +63,29 @@ describe('Form', function () {
         // create a form with no data
         const form = new TestForm()
         // make sure its invalid
-        expect(form.is_valid).to.be.false
+        expect(form.isValid).to.be.false
     })
 
 
     it('is valid with valid initial data', function() {
         // create a form with valid data
-        const form = new TestForm(valid_data)
+        const form = new TestForm(validData)
         // make sure its valid
-        expect(form.is_valid).to.be.true
+        expect(form.isValid).to.be.true
     })
 
 
     it('is invalid with invalid initial data', function() {
         // create a form with invalid data
-        const form = new TestForm(invalid_data)
+        const form = new TestForm(invalidData)
         // make sure its invalid
-        expect(form.is_valid).to.be.false
+        expect(form.isValid).to.be.false
     })
 
 
     it('can return the list of errors for invalid data', function() {
         // create a form with invalid data
-        const form = new TestForm(invalid_data)
+        const form = new TestForm(invalidData)
         // make sure the errors are a list
         // TODO: this could still be nested arrays
         expect(form.errors).to.be.an('array')
@@ -96,20 +96,20 @@ describe('Form', function () {
         // create a form with no data
         const form = new TestForm()
         // create a sinon spy to track the number of times called
-        const number_spy = sinon.spy()
+        const numberSpy = sinon.spy()
         // for every field
         for (const field of form){
             // call the spy
-            number_spy()
+            numberSpy()
         }
         // expect the spy to be called for each field
-        expect(number_spy.callCount).to.equal(form.fields.length)
+        expect(numberSpy.callCount).to.equal(form.fields.length)
     })
 
 
     it('can recieve and return the same value', function() {
         // the value to test
-        const  value = valid_data
+        const  value = validData
         // create a form with no data
         const form = new TestForm()
         // set value of the form
@@ -124,6 +124,6 @@ describe('Form', function () {
             name: 'foo'
         })
         // make sure the form is still valid even though the optional field will be empty
-        expect(form.is_valid).to.be.true
+        expect(form.isValid).to.be.true
     })
 })

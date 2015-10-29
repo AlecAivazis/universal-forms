@@ -11,11 +11,11 @@ class TextField extends BaseField {
         // the list of validators to apply to the text field
         const validators = []
         // grab the used configuration parameters
-        const {max_length} = this.configuration
+        const {maxLength: configMaxLength} = this.configuration
         // if there is a max length specified in the configuration
-        if (max_length) {
+        if (configMaxLength) {
             // add the maxLength validator to the stack
-            validators.push(maxLength(max_length))
+            validators.push(maxLength(configMaxLength))
         }
         // return the list of validators
         return validators

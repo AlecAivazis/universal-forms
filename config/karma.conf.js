@@ -2,12 +2,12 @@
 // Generated on Tue Oct 06 2015 21:43:38 GMT-0700 (PDT)
 
 
-var project_paths = require('./project_paths')
-var unit_test_glob = project_paths.test_entry
-var webpack_config = require(project_paths.webpack_config)
+var projectPaths = require('./projectPaths')
+var unitTestGlob = projectPaths.testEntry
+var webpackConfig = require(projectPaths.webpackConfig)
 
 var preprocessors = {}
-preprocessors[unit_test_glob] = ['webpack']
+preprocessors[unitTestGlob] = ['webpack']
 
 module.exports = function(config) {
 
@@ -24,7 +24,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        unit_test_glob,
+        unitTestGlob,
     ],
 
 
@@ -54,9 +54,9 @@ module.exports = function(config) {
     // configure webpack using settings from development webpack config
     webpack: {
         module: {
-            loaders: webpack_config.module.loaders
+            loaders: webpackConfig.module.loaders
         },
-        resolve: webpack_config.resolve
+        resolve: webpackConfig.resolve
     },
 
     webpackMiddleware: {
