@@ -158,9 +158,9 @@ class SignUpFormComponent extends React.Component {
 }
 ```
 
-The submission callback recieves the value of the form fields as an object. Alternatively, the `UniversalFormComponent` has a `resultAsString` prop which stringifies the data for you reducing even more clutter.
+The submission callback receives the value of the form fields as an object. Alternatively, the `UniversalFormComponent` has a `resultAsString` prop which stringifies the data for you reducing even more clutter.
 
-Keep in mind that while this example uses `isomorphic-fetch` to handle the xhr request, you could use any similar package instead.
+Keep in mind that while this example uses `isomorphic-fetch` to handle the XHR, you could use any similar package instead.
 
 ### Customizing the React component
 
