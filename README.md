@@ -12,18 +12,16 @@ Regardless of wether you're dealing with the front or back, the form object is a
 ```javascript
 // forms/SignUpForm.js
 
-// import used models from universal-forms
 import {Form, fields} from 'universal-forms'
 const {TextField, EmailField} = fields
 
-// the form to handle user signups
 class SignupForm extends Form {
     static fields = [
-        TextField('name'),
+        TextField('username'),
         EmailField('email'),
-        TextField('link'),
-        TextField('message', {
-            label: 'message (optional)',
+        TextField('bio', {
+            label: 'Describe yourself (optional)',
+            // fields are required unless otherwise indicated
             required: false,
             widget: {
                 type: 'textarea',
