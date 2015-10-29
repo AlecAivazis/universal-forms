@@ -7,7 +7,7 @@ import env from 'gulp-env'
 import mocha from 'gulp-mocha'
 import shell from 'gulp-shell'
 // local imports
-import project_paths from './config/project_paths'
+import projectPaths from './config/projectPaths'
 
 // const  = file => file.history[0].slice(file.base.length, -3)
 
@@ -15,10 +15,10 @@ import project_paths from './config/project_paths'
  * Build entry point.
  */
 gulp.task('build', ['clean'], () => {
-    return gulp.src([project_paths.source_entry])
+    return gulp.src([projectPaths.sourceEntry])
                .pipe(named()) // include relative path in filename
-               .pipe(webpack(require(project_paths.webpack_config)))
-               .pipe(gulp.dest(project_paths.build_dir))
+               .pipe(webpack(require(projectPaths.webpackConfig)))
+               .pipe(gulp.dest(projectPaths.buildDir))
 })
 
 
@@ -27,14 +27,14 @@ gulp.task('build', ['clean'], () => {
  */
 gulp.task('watch', ['clean'], () => {
     const config = {
-        ...require(project_paths.webpack_config),
+        ...require(projectPaths.webpackConfig),
         watch: true,
     }
 
-    return gulp.src(project_paths.source_entry)
+    return gulp.src(projectPaths.sourceEntry)
                .pipe(named()) // include relative path in filename
                .pipe(webpack(config))
-               .pipe(gulp.dest(project_paths.build_dir))
+               .pipe(gulp.dest(projectPaths.buildDir))
 })
 
 
@@ -49,10 +49,10 @@ gulp.task('build-production', ['clean'], () => {
         },
     })
     // build the client
-    return gulp.src(project_paths.source_entry)
+    return gulp.src(projectPaths.sourceEntry)
                .pipe(named()) // include relative path in filename
-               .pipe(webpack(require(project_paths.webpack_config)))
-               .pipe(gulp.dest(project_paths.build_dir))
+               .pipe(webpack(require(projectPaths.webpackConfig)))
+               .pipe(gulp.dest(projectPaths.buildDir))
 })
 
 
@@ -60,7 +60,7 @@ gulp.task('build-production', ['clean'], () => {
  * Remove all ouptut files from previous frontend builds.
  */
 gulp.task('clean', () => {
-    del.sync(project_paths.build_dir)
+    del.sync(projectPaths.buildDir)
 })
 
 

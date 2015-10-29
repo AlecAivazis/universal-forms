@@ -15,7 +15,7 @@ export class Form {
         // bind various functions
         this.updateFields = this.updateFields.bind(this)
         // start the form as unbound
-        this.is_bound = false
+        this.isBound = false
         // assign the initial values to the form if they were given
         this.values = values
     }
@@ -30,14 +30,14 @@ export class Form {
     // }
 
 
-    get invalid_fields() {
+    get invalidFields() {
         // if there the form is not bound
-        if (!this.is_bound) {
+        if (!this.isBound) {
             throw new Error('Form error: asking for invalid fields of an unbound form.')
         }
 
         // grab the invalid fields
-        return this.fields.filter((field) => !field.is_valid)
+        return this.fields.filter((field) => !field.isValid)
     }
 
 
@@ -46,13 +46,13 @@ export class Form {
     }
 
 
-    get is_valid() {
+    get isValid() {
         // if the form is not bound
-        if (!this.is_bound) {
+        if (!this.isBound) {
             return false
         }
         // the form is valid of there are no invalid fields that are required
-        return this.invalid_fields.filter((field) => field.required).length === 0
+        return this.invalidFields.filter((field) => field.required).length === 0
     }
 
 
@@ -62,7 +62,7 @@ export class Form {
             // update the fields of the form using immutable values
             this.updateFields(Immutable.Map(values))
             // bind the form
-            this.is_bound = true
+            this.isBound = true
         }
     }
 
