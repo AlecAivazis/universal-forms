@@ -50,13 +50,13 @@ import LoginForm from 'forms/SignUpForm'
 
 
 class SignUpFormComponent extends React.Component {
-    // render the component
     render() {
-        // render the new component
-        return <UniversalFormComponent
-                  form={SignUpForm}
-                  action='/login'
-                  {...this.props} />
+        return (
+            <UniversalFormComponent
+                form={SignUpForm}
+                action='/login'
+            />
+        )
     }
 }
 ```
@@ -79,37 +79,36 @@ import LoginForm from 'forms/SignUpForm'
 
 
 class SignUpFormComponent extends React.Component {
+    // data gets passed to the submission handler as an object
+    submitForm(formData) {
+        fetch('/login',{
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            body: JSON.stringify(formData),
+        })
+        // if the request was made
+        .then((response) => {
+            // parse the response as text
+            return response.text()
+        })
+        // use the response
+        .then((responseText) => {
+            console.log(responseText)
+        })
+    }
 
-  // data gets passed to the submission handler as an object
-  submitForm(formData) {
-    fetch('/login',{
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include',
-      body: JSON.stringify(formData),
-    })
-    // if the request was made
-    .then((response) => {
-      // parse the response as text
-      return response.text()
-    })
-    // use the response
-    .then((responseText) => {
-      console.log(responseText)
-    })
-  }
-
-  // render the component
-  render() {
-    // render the new component
-    return <UniversalFormComponent
-              form={SignUpForm}
-              onSubmit={this.submitForm}
-              {...this.props} />
-  }
+    render() {
+        return (
+            <UniversalFormComponent
+                form={SignUpForm}
+                onSubmit={this.submitForm}
+            />
+        )
+    }
 }
 ```
 
