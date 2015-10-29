@@ -108,7 +108,7 @@ class SignUpFormComponent extends React.Component {
     // render the new component
     return <UniversalFormComponent
               form={SignUpForm}
-              action='/login'
+              onSubmit={this.submitForm}
               {...this.props} />
   }
 }
