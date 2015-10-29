@@ -46,13 +46,13 @@ class UniversalForm extends React.Component {
     }
 
 
-    getElementForWidget({type = 'input', ...unused_props}) {
+    getElementForWidget({type = 'input', ...unusedProps}) {
         if (type === 'input') {
-            return <input {...unused_props}/>
+            return <input {...unusedProps}/>
         } else if (type === 'textarea') {
-            return <textarea {...unused_props}/>
+            return <textarea {...unusedProps}/>
         } else if (type === 'password') {
-            return <input type='password' {...unused_props}/>
+            return <input type='password' {...unusedProps}/>
         }
     }
 
@@ -113,17 +113,17 @@ class UniversalForm extends React.Component {
             inputStyle,
             fieldStyle,
             submitContainerStyle,
-            ...unused_props,
+            ...unusedProps,
             action,
             method,
         } = this.props
 
         // render the component
         return (
-            <form {...unused_props} ref='form' action={action} method={method}>
+            <form {...unusedProps} ref='form' action={action} method={method}>
                 {this.state.form.fields.map(({name, label, widget}) => {
                     // the input widget
-                    const input_widget = React.cloneElement(this.getElementForWidget(widget), {
+                    const inputWidget = React.cloneElement(this.getElementForWidget(widget), {
                         id: name,
                         ref: name,
                         style: inputStyle,
@@ -132,7 +132,7 @@ class UniversalForm extends React.Component {
                     return (
                         <div style={fieldStyle} key={name}>
                             <label htmlFor={name} style={labelStyle}>{label}:</label>
-                            {input_widget}
+                            {inputWidget}
                         </div>
                     )
                 })}

@@ -53,15 +53,15 @@ class SignUpFormComponent extends React.Component {
     // render the component
     render() {
         // render the new component
-        return <UniversalFormComponent 
-                  form={SignUpForm} 
+        return <UniversalFormComponent
+                  form={SignUpForm}
                   action='/login'
                   {...this.props} />
     }
 }
 ```
 
-This will result in a form whose submit button is a traditional `<input>` element and `POST`s to the action parameter when the fields are valid. 
+This will result in a form whose submit button is a traditional `<input>` element and `POST`s to the action parameter when the fields are valid.
 
 ## Specifying a Custom Callback
 
@@ -89,7 +89,7 @@ class SignUpFormComponent extends React.Component {
         'Content-Type': 'application/json',
       },
       credentials: 'include',
-      body: JSON.stringify(formData), // 
+      body: JSON.stringify(formData), //
     })
     // if the request was made
     .then((response) => {
@@ -100,14 +100,14 @@ class SignUpFormComponent extends React.Component {
     .then((responseText) => {
       console.log(responseText)
     })
-    
+
   }
 
   // render the component
   render() {
     // render the new component
-    return <UniversalFormComponent 
-              form={SignUpForm} 
+    return <UniversalFormComponent
+              form={SignUpForm}
               onSubmit={this.submitForm}
               {...this.props} />
   }
@@ -140,7 +140,7 @@ Even though the validation is managed on the frontend, you still have to validat
 
 // thirdparty imports
 import express from 'express'
-import bodyParser from 'body-parser' 
+import bodyParser from 'body-parser'
 // local imports
 import SignUpForm from 'forms/SignUpForm'
 
@@ -154,7 +154,7 @@ app.post('/signup', jsonParser, (req, res) => {
     // load the form with the data
     const form = new SignUpForm(req.body)
     // if the form is valid
-    if (form.is_valid) {
+    if (form.isValid) {
         // create a new user model
         const newUser = new User(form.values)
         // save it to the database
