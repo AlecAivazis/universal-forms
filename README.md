@@ -90,12 +90,10 @@ Once you have defined a form class (as done above), displaying the form in the b
 ```javascript
 // components/forms/SignUpFormComponent.js
 
-// third party imports
 import React from 'react'
 import {UniversalFormComponent} from 'universal-forms'
-// import the form
+// import the form class from the example above
 import SignUpForm from 'forms/SignUpForm'
-
 
 class SignUpFormComponent extends React.Component {
     render() {
@@ -166,12 +164,15 @@ Keep in mind that while this example uses `isomorphic-fetch` to handle the xhr r
 
 ### Customizing the React component
 
-In order to customize the look and feel of the form, the `UniversalFormComponent` has the following properties which style and customize the specified form elements:
+Customizing the look and feel of the form, is as easy as passing in a few props to the `UniversalFormComponent`.  Here is the complete list of props accepted by the `UniversalFormComponent`, all of which are optional:
 
-* `fieldStyle` styles the element that contains the label and the appropriate widget
-* `widgetStyle` styles the field widget. Additional styles can be passed as paramters when created.
-* `labelStyle` styles the label container
-* `submitButtonStyle` styles the submit button
-* `submitContainerStyle` styles the container around the submit button. Useful for defining its own alignment.
-* `submitText` sets the text of the submit button.
-* `method` sets the method used when submitting the form. This prop is only used if `action` is set.
+* `onSubmit`: Custom handler to fire when the submit button is clicked.  Will be passed the form data as a JSON object.
+* `action`: The URI to POST to.
+* `method`: Sets the method used when submitting the form. This prop is only used if `action` is set.
+* `submitText`: Sets the text of the submit button.  Defaults to `"Submit"`.
+* `style`: Styles the form element as a whole.
+* `fieldStyle`: Styles each field element (an element that contains the label and the appropriate widget for each given field).
+* `widgetStyle`: Styles each field widget. Additional styles can be passed as parameters when created.
+* `labelStyle`: Styles each label element.
+* `submitButtonStyle`: Styles the submit button.
+* `submitContainerStyle`: Styles the container around the submit button. Useful for defining its own alignment.
