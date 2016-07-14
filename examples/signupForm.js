@@ -19,8 +19,9 @@ export default class SignUpForm extends Form {
 
 /*
  * Could also implement a factory which provides the following api.
- * This prevents possible fuck ups with mispelling or not assigning `fields`
- * but is not as explicit/transparent.
+ * This prevents possible mistakes with mispelling or not assigning `fields`
+ * but is not as explicit/transparent. Also, classes provide an easy way to 
+ * add custom validation logic, through {validate_foo} methods.
  *
  * export default Form([
  *    TextField('name'),
